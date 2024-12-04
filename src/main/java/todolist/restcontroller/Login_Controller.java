@@ -17,13 +17,8 @@ public class Login_Controller {
     }
 
     @PostMapping("/login")
-    public boolean handleLogin(@RequestBody LoginRequest loginRequest,
-                              HttpSession httpSession){
-        if(login_service.authenticate(loginRequest)){
-            httpSession.setAttribute("userId",loginRequest.getUserId());
-            return true;
-        }
-        return false;
+    public boolean handleLogin(@RequestBody LoginRequest loginRequest,HttpSession httpSession){
+        return login_service.authenticate(loginRequest,httpSession);
     }
 
     @GetMapping("/logout")
