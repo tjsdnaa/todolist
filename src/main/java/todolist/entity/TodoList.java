@@ -1,0 +1,25 @@
+package todolist.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Entity
+@Getter
+@Setter
+public class TodoList {
+
+    @Id
+    private int listId;
+    private String title;
+    private String content;
+    private Date closingDate;
+
+    @ManyToOne
+    private User user;
+
+}
