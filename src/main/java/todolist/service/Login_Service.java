@@ -1,6 +1,7 @@
 package todolist.service;
 
 import org.springframework.stereotype.Service;
+import todolist.dto.LoginRequest;
 import todolist.repository.Login_Repository;
 
 import java.util.stream.Collectors;
@@ -15,9 +16,12 @@ public class Login_Service {
         login_repository = loginRepository;
     }
 
-    public boolean authenticate(String user_id,String password){
-        if(login_repository.findByUser_id(user_id).isPresent()){
-            return login_repository.findByUser_id(user_id).get().getPassword().equals(password);
+    public boolean authenticate(LoginRequest loginRequest){
+        String userId=loginRequest.getUserId();
+        String password = loginRequest.getPassword();
+
+        if(login_repository.findByUserId(userId).isPresent()){
+            return login_repository.findByUserId(userId).get().getPassword().equals(password);
         }
 
         return false;

@@ -23,4 +23,7 @@ public class Todo_Service {
     public TodoList createTodo(TodoList list){
         return todo_repository.save(list);
     }
+    public void deleteTodo(TodoList list){
+        todo_repository.deleteById(list.getListId());
+    }
 }

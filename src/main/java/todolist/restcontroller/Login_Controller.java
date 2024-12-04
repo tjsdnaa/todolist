@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import todolist.dto.LoginRequest;
 import todolist.service.Login_Service;
 
 @RestController
@@ -16,12 +17,10 @@ public class Login_Controller {
     }
 
     @PostMapping("/login")
-    public boolean handleLogin(@RequestParam String user_id,
-                              @RequestParam String password,
-                              HttpSession httpSession,
-                              Model model){
-        if(login_service.authenticate(user_id,password)){
-            httpSession.setAttribute("user_id",user_id);
+    public boolean handleLogin(@RequestBody LoginRequest loginRequest,
+                              HttpSession httpSession){
+        if(login_service.authenticate(loginRequest)){
+            httpSession.setAttribute("userId",loginRequest.getUserId());
             return true;
         }
         return false;
@@ -32,5 +31,4 @@ public class Login_Controller {
         httpSession.invalidate();
         return false;
     }
-
 }

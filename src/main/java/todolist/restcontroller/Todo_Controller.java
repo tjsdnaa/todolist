@@ -26,4 +26,8 @@ public class Todo_Controller {
     public TodoList createTodo(@RequestBody TodoList list){
         return todo_service.createTodo(list);
     }
+    @DeleteMapping
+    public void deleteTodo(@RequestBody TodoList list){
+        todo_service.deleteTodo(list);
+    }
 }
