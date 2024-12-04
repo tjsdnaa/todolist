@@ -14,7 +14,6 @@ public class Alram {
     @Id
     private Integer alramId;
 
-    @ManyToOne
-    private TodoList todoList;
+    private Integer listId;
 
 }

@@ -15,7 +15,6 @@ public class Image {
     private Integer imageId;
     private String image;
 
-    @ManyToOne
-    private TodoList todoList;
+    private Integer listId;
 
 }

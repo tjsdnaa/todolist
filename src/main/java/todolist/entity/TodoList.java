@@ -19,7 +19,6 @@ public class TodoList {
     private String content;
     private Date closingDate;
 
-    @ManyToOne
-    private User user;
+    private String userId;
 
 }

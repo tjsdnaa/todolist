@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import todolist.dto.LoginRequest;
 import todolist.repository.Login_Repository;
 
-import java.util.stream.Collectors;
 
 @Service
 public class Login_Service {
@@ -17,7 +16,7 @@ public class Login_Service {
     }
 
     public boolean authenticate(LoginRequest loginRequest){
-        String userId=loginRequest.getUserId();
+        String userId = loginRequest.getUserId();
         String password = loginRequest.getPassword();
 
         if(login_repository.findByUserId(userId).isPresent()){

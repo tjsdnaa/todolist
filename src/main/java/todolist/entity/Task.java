@@ -15,7 +15,6 @@ public class Task {
     private Integer taskId;
     private String title;
 
-    @ManyToOne
-    private TodoList todoList;
+    private Integer listId;
 
 }
