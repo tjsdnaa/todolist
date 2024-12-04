@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Image {
 
     @Id
-    private int imageId;
+    private Integer imageId;
     private String image;
 
     @ManyToOne

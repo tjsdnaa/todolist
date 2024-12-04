@@ -12,11 +12,10 @@ import lombok.Setter;
 public class Task {
 
     @Id
-    private int taskId;
+    private Integer taskId;
     private String title;
 
     @ManyToOne
     private TodoList todoList;
 
-    // Lombok이 자동으로 getter, setter를 생성
 }

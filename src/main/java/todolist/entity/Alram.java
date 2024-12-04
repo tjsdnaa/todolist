@@ -9,13 +9,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Alarm {
+public class Alram {
 
     @Id
-    private int alarmId;
+    private Integer alramId;
 
     @ManyToOne
     private TodoList todoList;
 
-    // Lombok이 자동으로 getter, setter를 생성
 }

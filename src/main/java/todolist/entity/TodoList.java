@@ -14,7 +14,7 @@ import java.util.Date;
 public class TodoList {
 
     @Id
-    private int listId;
+    private Integer listId;
     private String title;
     private String content;
     private Date closingDate;
