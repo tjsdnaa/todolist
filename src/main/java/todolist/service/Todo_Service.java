@@ -20,6 +20,10 @@ public class Todo_Service {
         return todo_repository.findById(id);
     }
 
+    public TodoList getByList(Integer i){
+        return todo_repository.findByListId(i);
+    }
+
     public TodoList createTodo(TodoList list){
         return todo_repository.save(list);
     }

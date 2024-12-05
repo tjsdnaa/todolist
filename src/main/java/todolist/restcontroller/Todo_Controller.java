@@ -21,6 +21,10 @@ public class Todo_Controller {
     public Optional<TodoList> getAllList(){
         return todo_service.getAllList();
     }
+    @GetMapping("/list/{i}")
+    public TodoList getByList(@PathVariable("i") Integer i) {
+        return todo_service.getByList(i);
+    }
 
     @PostMapping
     public TodoList createTodo(@RequestBody TodoList list){
