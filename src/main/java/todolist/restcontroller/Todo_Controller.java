@@ -18,18 +18,25 @@ public class Todo_Controller {
     }
 
     @GetMapping
-    public Optional<TodoList> getAllList(){
-        return todo_service.getAllList();
+    public List<TodoList> getAllList(@RequestParam(name = "id") String id){
+        return todo_service.getAllList(id);
     }
+
     @GetMapping("/list/{i}")
     public TodoList getByList(@PathVariable("i") Integer i) {
         return todo_service.getByList(i);
+    }
+
+    @DeleteMapping("/list/{i}")
+    public void deleteByList(@PathVariable("i") Integer i) {
+        todo_service.deleteByList(i);
     }
 
     @PostMapping
     public TodoList createTodo(@RequestBody TodoList list){
         return todo_service.createTodo(list);
     }
+
     @DeleteMapping
     public void deleteTodo(@RequestBody TodoList list){
         todo_service.deleteTodo(list);
