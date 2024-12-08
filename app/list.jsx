@@ -1,32 +1,30 @@
 "use client";
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-function List({ id }) {
-    const [data, setData] = useState(null);
+function List({ list }) {
+    const [data, setData] = useState(null); // 상태 선언
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:9090/todoList/list/${id}`);
-                setData(response.data);
-            } catch (error) {
-                console.error("데이터를 불러오는 중 오류 발생:", error);
-            }
+            const response = await axios.get(`http://localhost:9090/todoList/list/${list}`);
+            setData(response.data); // 데이터 저장
         };
-
         fetchData();
-    }, [id]);  // id가 변경될 때마다 새로운 데이터를 가져옴
+    }, [list]); // id 변경 시 다시 실행
 
-    if (!data) {
-        return <div>로딩 중...</div>;
+    const handleDelete = async () => {
+        await axios.delete(`http://localhost:9090/todoList/list/${list}`);
+        setData(null);
+    };
+    if(data!==null){
+        return (
+            <div>
+                <button onClick={handleDelete}>{data.title}</button>
+            </div>
+        );
     }
-
-    return (
-        <div>
-            <input type="button" value={data} />
-        </div>
-    );
+    
 }
 
 export default List;
