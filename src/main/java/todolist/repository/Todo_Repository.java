@@ -13,5 +13,7 @@ public interface Todo_Repository extends JpaRepository<TodoList,Integer> {
     TodoList findByListId(Integer listId);
     List<TodoList> findByUserId(String userId);
     void deleteByListId(Integer listId);
+    List<TodoList> findByTitleContaining(String keyword);
+
 
 }

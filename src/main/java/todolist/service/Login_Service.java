@@ -3,8 +3,11 @@ package todolist.service;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import todolist.dto.LoginRequest;
+import todolist.entity.TodoList;
 import todolist.entity.User;
 import todolist.repository.Login_Repository;
+
+import java.util.List;
 
 
 @Service
@@ -17,15 +20,16 @@ public class Login_Service {
 
 
     //로그인 상태인지 확인
-    public boolean isLogined(HttpSession httpSession) {
+    public User isLogined(HttpSession httpSession) {
         if(login_repository.findByUserId((String) httpSession.getAttribute("userId")).isPresent()){
-            return true;
+            return login_repository.findByUserId((String) httpSession.getAttribute("userId")).get();
         }
-        return false;
+        return null;
     }
 
 
-    //로그인 인증
+
+                                                //로그인 인증
     public boolean authenticate(LoginRequest loginRequest, HttpSession httpSession){
         String userId = loginRequest.getUserId();
         String password = loginRequest.getPassword();

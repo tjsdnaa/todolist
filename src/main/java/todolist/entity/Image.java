@@ -1,8 +1,6 @@
 package todolist.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Image {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer imageId;
     private String image;
 

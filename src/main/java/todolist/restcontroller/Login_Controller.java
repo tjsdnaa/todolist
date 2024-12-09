@@ -16,7 +16,7 @@ public class Login_Controller {
 
     //로그인 체크
     @GetMapping("/login")
-    public boolean login_check(HttpSession httpSession){
+    public User login_check(HttpSession httpSession){
         return login_service.isLogined(httpSession);
     }
 

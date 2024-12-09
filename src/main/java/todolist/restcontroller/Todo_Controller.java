@@ -32,13 +32,14 @@ public class Todo_Controller {
         todo_service.deleteByList(i);
     }
 
+    @PutMapping
+    public boolean updateByList(@PathVariable("i") Integer i,@RequestBody TodoList list) {
+        return todo_service.updateByList(i,list);
+    }
+
+
     @PostMapping
     public TodoList createTodo(@RequestBody TodoList list){
         return todo_service.createTodo(list);
-    }
-
-    @DeleteMapping
-    public void deleteTodo(@RequestBody TodoList list){
-        todo_service.deleteTodo(list);
     }
 }

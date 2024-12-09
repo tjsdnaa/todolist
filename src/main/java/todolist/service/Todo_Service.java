@@ -17,7 +17,7 @@ public class Todo_Service {
     }
 
 
-    // id에 해당하는 todolist 전체 출력
+    // user_id에 해당하는 todolist 전체 출력
     public List<TodoList> getAllList(String id){
         return todo_repository.findByUserId(id);
     }
@@ -31,11 +31,23 @@ public class Todo_Service {
         todo_repository.deleteByListId(i);
     }
 
-
-    public TodoList createTodo(TodoList list){
-        return todo_repository.save(list);
+    @Transactional
+    public boolean updateByList(Integer i,TodoList list){
+        if(todo_repository.findById(i).isPresent()){
+            TodoList todo = todo_repository.findById(i).get();
+            todo.setTitle(list.getTitle());
+            todo.setContent(list.getContent());
+        } else{
+            createTodo(list);
+        }
+        return true;
     }
-    public void deleteTodo(TodoList list){
-        todo_repository.deleteById(list.getListId());
+    //키워드로 타이틀 찾기
+    public List<TodoList> findByTitleContaining(String keyword){
+        return todo_repository.findByTitleContaining(keyword);
+    }
+
+    public TodoList createTodo(TodoList list) {
+        return todo_repository.save(list);
     }
 }
