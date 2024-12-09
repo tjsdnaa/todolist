@@ -17,14 +17,15 @@ function List({ list }) {
         await axios.delete(`http://localhost:9090/todoList/list/${list}`);
         setData(null);
     };
-    if(data!==null){
+
+    if (data !== null) {
         return (
-            <div>
-                <button onClick={handleDelete}>{data.title}</button>
+            <div className="todo-item">
+                <button className="title-btn">{data.title}</button>
+                <button className="delete-btn" onClick={handleDelete}>삭제</button>
             </div>
         );
     }
-    
 }
 
 export default List;

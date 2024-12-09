@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function Login({ setUser , setJoin }) {
+function Login({user, setUser , setJoin }) {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,7 +30,7 @@ function Login({ setUser , setJoin }) {
   };
   return (
     <div>
-      <h1>로그인</h1>
+      <h1>로그인{user}</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

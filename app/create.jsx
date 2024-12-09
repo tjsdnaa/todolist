@@ -6,13 +6,14 @@ function Create({user}) {
     const [todo, setTodo] = useState({
         title: '',
         content: '',
-        closingDate: new Date().toISOString().slice(0, 16),
+        closingDate: '',
         userId: userId
     });
     
 
 
-    const handleCreate = async () =>{
+    const handleCreate = async (e) =>{
+        e.preventDefault();
         await axios.post('http://localhost:9090/todoList',todo);
     }
     
@@ -26,6 +27,13 @@ function Create({user}) {
                     type="text"
                     value={todo.title}
                     onChange={(e) => setTodo((prevTodo) => ({ ...prevTodo, title: e.target.value }))}
+                    required
+                />
+                <input
+                    id="datetime-local"
+                    type="datetime-local"
+                    value={todo.closingDate}
+                    onChange={(e) => setTodo((prevTodo) => ({ ...prevTodo, closingDate: e.target.value }))}
                     required
                 />
             </div>
