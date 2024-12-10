@@ -73,7 +73,7 @@
 
 ### 4. Api 명세 작성 필수 → Swagger 등 사용해도 무방함
 - (API명세를 정확히 어떻게 작성하는 지 몰라 일단 작성해봤지만 양해부탁드립니다.)
-- (로그인)
+#### (로그인)
  1. 로그인 되어있는지 확인
    - 메서드 : GET , 요청 URL : http://localhost:9090/login
    - 응답 :{userId : '사용자' , password : '비밀번호' , name : '이름'}
@@ -83,7 +83,7 @@
  3. 로그아웃
    - 메서드 : GET , 요청 URL : http://localhost:9090/logout
    -응답 :boolean
- (TODOLIST)
+#### (TODOLIST)
  1. 해당 아이디의 전체 todolist 출력
    - 메서드 : GET , 요청 URL : http://localhost:9090/todoList
    -응답 :{
@@ -105,7 +105,7 @@
  3. todolist 삭제
    - 메서드 : POST, 요청 URL : http://localhost:9090/todoList/list/{i}
    - 응답 : 없음
- (회원가입)
+#### (회원가입)
  1. 회원가입
    - 메서드 : POST, 요청 URL : http://localhost:9090/join
    - 요청 : :{userId : '사용자' , password : '비밀번호' , name : '이름'}
