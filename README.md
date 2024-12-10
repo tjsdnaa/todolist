@@ -67,3 +67,60 @@
    ```bash
    git clone -b back-end https://github.com/tjsdnaa/todolist
    cd todolist
+
+### 3. 주력으로 사용한 라이브러리에 대한 설명 및 사용 이유 기입
+- JPA라이브러리를 주력으로 사용했습니다. JPA는 객체와 RDBMS 간의 매핑을 위한 표준 API입니다. 객체관계 매핑을 지원하여 개발자가 RDBMS 데이터를 객체형대로 처리할 수 있고 반대로 객체를 데이터베이스의 저장하기 쉽게 할 수 있도록 도와주는 라이브러리입니다. IT교육에서 배우기도 했고 유지보수성 용이하고 편리하다 생각해서 사용했습니다.
+
+### 4. Api 명세 작성 필수 → Swagger 등 사용해도 무방함
+- (API명세를 정확히 어떻게 작성하는 지 몰라 일단 작성해봤지만 양해부탁드립니다.)
+ (로그인)
+ 1. 로그인 되어있는지 확인
+   - 메서드 : GET , 요청 URL : http://localhost:9090/login
+   - 응답 :{userId : '사용자' , password : '비밀번호' , name : '이름'}
+ 2. 로그인 하기 
+   - 메서드 : POST , 요청 URL : http://localhost:9090/login
+   - 요청 :{userId : '사용자' , password : '비밀번호'}
+ 3. 로그아웃
+   - 메서드 : GET , 요청 URL : http://localhost:9090/logout
+   -응답 :boolean
+ (TODOLIST)
+ 1. 해당 아이디의 전체 todolist 출력
+   - 메서드 : GET , 요청 URL : http://localhost:9090/todoList
+   -응답 :{
+  "listId": 1,
+  "title": "",
+  "content": "",
+  "closingDate": "2024-12-15T18:00:00",
+  "userId": "user123"
+}
+ 2. todolist 생성
+   - 메서드 : POST, 요청 URL : http://localhost:9090/todoList
+   -응답 : {
+  "listId": 1,
+  "title": "",
+  "content": "",
+  "closingDate": "2024-12-15T18:00:00",
+  "userId": "user123"
+}
+ 3. todolist 삭제
+   - 메서드 : POST, 요청 URL : http://localhost:9090/todoList/list/{i}
+   - 응답 : 없음
+ (회원가입)
+ 1. 회원가입
+   - 메서드 : POST, 요청 URL : http://localhost:9090/join
+   - 요청 : :{userId : '사용자' , password : '비밀번호' , name : '이름'}
+### 5. 테스트케이스 작성 필수
+테스트 아이디 | 시나리오 | 입력데이터 
+tc1 | 회원가입 하기 | {userId : '사용자' , password : '비밀번호' , name : '이름'}
+tc2 | 로그인 | {userId : '사용자' , password : '비밀번호' }
+tc3 | 투두리스트 출력 | {
+  "listId": 1,
+  "title": "",
+  "content": "",
+  "closingDate": "2024-12-15T18:00:00",
+  "userId": "user123"
+}
+tc4 | 투두리스트 삭제 | 
+### 6 기본 CRUD 업무 이외에 추가적인 업무 Api 1개이상 필수 (Ex -> 일정 공유 기능)
+- TODOLIST의 마감일 순서에 따라 리스트의 우선순위 배정했습니다.
+- 로그인 기능 추가했습니다.
