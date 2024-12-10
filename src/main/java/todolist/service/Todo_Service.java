@@ -5,6 +5,10 @@ import org.springframework.transaction.annotation.Transactional;
 import todolist.entity.TodoList;
 import todolist.repository.Todo_Repository;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +21,13 @@ public class Todo_Service {
     }
 
 
-    // user_id에 해당하는 todolist 전체 출력
+    // user_id에 해당하는 todolist 전체 출력 및 마감일에 따라 리스트 정렬
     public List<TodoList> getAllList(String id){
-        return todo_repository.findByUserId(id);
+        List<TodoList> todo = todo_repository.findByUserId(id);
+
+        Collections.sort(todo, (o1, o2) -> o1.getClosingDate().compareTo(o2.getClosingDate()));
+
+        return todo;
     }
 
     public TodoList getByList(Integer i){
@@ -41,10 +49,6 @@ public class Todo_Service {
             createTodo(list);
         }
         return true;
-    }
-    //키워드로 타이틀 찾기
-    public List<TodoList> findByTitleContaining(String keyword){
-        return todo_repository.findByTitleContaining(keyword);
     }
 
     public TodoList createTodo(TodoList list) {

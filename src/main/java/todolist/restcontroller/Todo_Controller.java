@@ -17,6 +17,7 @@ public class Todo_Controller {
         todo_service = todoService;
     }
 
+    //해당 아이디의 전체 todolist 출력
     @GetMapping
     public List<TodoList> getAllList(@RequestParam(name = "id") String id){
         return todo_service.getAllList(id);
@@ -26,20 +27,24 @@ public class Todo_Controller {
     public TodoList getByList(@PathVariable("i") Integer i) {
         return todo_service.getByList(i);
     }
-
-    @DeleteMapping("/list/{i}")
-    public void deleteByList(@PathVariable("i") Integer i) {
-        todo_service.deleteByList(i);
-    }
-
-    @PutMapping
-    public boolean updateByList(@PathVariable("i") Integer i,@RequestBody TodoList list) {
-        return todo_service.updateByList(i,list);
-    }
-
-
+    
+    // todolist 생성
     @PostMapping
     public TodoList createTodo(@RequestBody TodoList list){
         return todo_service.createTodo(list);
     }
+
+    // todolist 수정
+    @PutMapping
+    public boolean updateByList(@PathVariable("i") Integer i,@RequestBody TodoList list) {
+        return todo_service.updateByList(i,list);
+    }
+    
+    // todolist 삭제
+    @DeleteMapping("/list/{i}")
+    public void deleteByList(@PathVariable("i") Integer i) {
+        todo_service.deleteByList(i);
+    }
+    
+
 }
