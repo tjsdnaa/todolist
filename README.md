@@ -32,13 +32,11 @@
 ### 2. 소스 빌드 및 실행 방법 메뉴얼
 
 1. Visual Studio 실행 후 깃 배쉬 터미널을 엽니다.
-2. `npx create-next-app@latest` 명령어로 새 프로젝트를 생성합니다.
-3. `npm install axios` 명령어로 Axios를 설치합니다.
-4. `git init` 명령어로 Git을 초기화합니다.
-5. `git remote add origin https://github.com/tjsdnaa/todolist` 명령어로 원격 저장소를 추가합니다.
-6. `git pull origin master` 명령어로 master 브랜치에서 소스를 다운로드합니다.
-7. `cd ./my-app` 명령어로 본인이 만든 폴더로 이동합니다.
-8. `npm run dev` 명령어로 프로젝트를 실행합니다.
+2. `git init` 명령어로 Git을 초기화합니다.
+3. `git remote add origin https://github.com/tjsdnaa/todolist` 명령어로 원격 저장소를 추가합니다.
+4. `git pull origin master` 명령어로 master 브랜치에서 소스를 다운로드합니다.
+5. `npm install`,`npm install axios` 명령어로 Axios를 설치합니다.
+6. `npm run dev` 명령어로 프로젝트를 실행합니다.
 
 #### 2-1. 만약 위 방법으로 실행되지 않을 경우
 1. Visual Studio 실행 후 깃 배쉬 터미널을 엽니다.
