@@ -15,13 +15,8 @@ export default function Home() {
   useEffect(() => {
     axios.get("http://localhost:9090/login")
       .then(response => {
-        console.log('Full response:', response); 
-        console.log('Response data:', response.data);
         setUser(response.data);
         setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching login data:', error);
       });
   }, []);
   

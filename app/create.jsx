@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useState } from 'react';
 
-function Create({user}) {
+function Create({user,setTodolist}) {
     const userId=user.userId;
     const [todo, setTodo] = useState({
         title: '',
@@ -14,7 +14,11 @@ function Create({user}) {
 
     const handleCreate = async (e) =>{
         e.preventDefault();
+        
         await axios.post('http://localhost:9090/todoList',todo);
+        
+        const response = await axios.get(`http://localhost:9090/todoList?id=${user.userId}`);
+        setTodolist(response.data);
     }
     
     

@@ -8,10 +8,8 @@ function Alram({ todolist }) {
     const timer = setInterval(() => {
       setSelectedDate(new Date(new Date().getTime() + 9 * 60 * 60 * 1000).toISOString().slice(0, 16));
     }, 1000);
-
-    // 컴포넌트가 언마운트될 때 타이머 정리
     return () => clearInterval(timer);
-  }, []);
+  }, [selectedDate]);
 
   useEffect(() => {
     const checkAlarm = () => {

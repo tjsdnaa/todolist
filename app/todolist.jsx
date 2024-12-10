@@ -17,7 +17,6 @@ function Todolist({ user }) {
   }, [todolist]);
 
   
-
   return (
     <div>
       {todolist.map((todo) => (
@@ -25,7 +24,7 @@ function Todolist({ user }) {
           <List list={todo.listId} />
         </div>
       ))}
-      <Create user={user} todolist={todolist} />
+      <Create user={user} setTodolist={setTodolist} />
       <Alram todolist={todolist}/>
     </div>
   );
